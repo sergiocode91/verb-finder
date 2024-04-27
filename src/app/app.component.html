@@ -1,10 +1,20 @@
 <router-outlet/>
 
-<div class="w-screen h-screen content-center text-center bg-gray-900">
+<div class="w-screen h-screen flex flex-col items-center justify-center space-y-8 bg-gray-900">
   <h1 class="font-bold text-5xl text-white">Verb Finder</h1>
-  <div>
-    <input type="text" [(ngModel)]="inputValue" placeholder="Enter some text...">
-    <button (click)="processInput()">Submit</button>
+  <div class="flex space-x-3">
+    <input 
+      type="text" 
+      class="w-80 h-12 font-semibold text-white px-4 rounded-lg bg-slate-800 focus:outline-none"
+      placeholder="Search verb ..."
+      [(ngModel)]="inputValue" 
+    >
+    <button 
+      class="w-40 h-12 flex items-center justify-center font-semibold text-white px-3 rounded-lg bg-gradient-to-r from-[#bc4e9c] to-[#f80759]"
+      (click)="processInput()"
+    >
+      Search
+    </button>
   </div>
 
   @if(response) {
