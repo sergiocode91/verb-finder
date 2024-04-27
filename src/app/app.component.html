@@ -10,14 +10,18 @@
       [(ngModel)]="inputValue" 
     >
     <button 
-      class="w-40 h-12 flex items-center justify-center font-semibold text-white px-3 rounded-lg bg-gradient-to-r from-[#bc4e9c] to-[#f80759]"
+      class="w-28 h-12 flex items-center justify-center font-semibold text-white px-3 rounded-lg bg-gradient-to-r from-[#bc4e9c] to-[#f80759]"
       (click)="processInput()"
     >
-      Search
+      @if(!isLoading()) {
+        Search
+      } @else {
+        <i class="gg-spinner"></i>
+      }
     </button>
   </div>
 
-  @if(response) {
+  @if(response(); as response) {
     <p>Infinitive: {{ response.infinitive }}</p>
     <p>Simple Past: {{ response.simple_past }}</p>
     <p>Past Participle: {{ response.past_participle }}</p>
