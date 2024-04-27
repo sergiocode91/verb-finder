@@ -7,7 +7,8 @@
       type="text" 
       class="w-80 h-12 font-semibold text-white px-4 rounded-lg bg-slate-800 focus:outline-none"
       placeholder="Search verb ..."
-      [(ngModel)]="inputValue" 
+      [(ngModel)]="inputValue"
+      (keyup.enter)="processInput()"
     >
     <button 
       class="w-28 h-12 flex items-center justify-center font-semibold text-white px-3 rounded-lg bg-gradient-to-r from-[#bc4e9c] to-[#f80759]"
@@ -22,9 +23,23 @@
   </div>
 
   @if(response(); as response) {
-    <p>Infinitive: {{ response.infinitive }}</p>
-    <p>Simple Past: {{ response.simple_past }}</p>
-    <p>Past Participle: {{ response.past_participle }}</p>
-    <p>Spanish Translation: {{ response.spanish_translation }}</p>
+    <div class="text-white text-center space-y-4">
+      <div class="">
+        <h2 class="text-md italic">Infinitive</h2>
+        <p class="text-xl font-bold">{{ response.infinitive }}</p>
+      </div>
+      <div>
+        <h2 class="text-md italic">Simple Past</h2>
+        <p class="text-xl font-bold">{{ response.simple_past }}</p>
+      </div>
+      <div>
+        <h2 class="text-md italic">Past Participle</h2>
+        <p class="text-xl font-bold">{{ response.past_participle }}</p>
+      </div>
+      <div>
+        <h2 class="text-md italic">Spanish Translation</h2>
+        <p class="text-xl font-bold">{{ response.spanish_translation }}</p>
+      </div>
+    </div>
   }
 </div>
